@@ -12,16 +12,28 @@ export default function App() {
   const [showModal, setShowModal] = useState(false);
 
   // Methods
-  function onAddItem() {
-    
+  function onAddItem(name, price) {
+    const newItem = {
+      id: list.length,
+      name: name,
+      price: price,
+      imageURL: "",
+      isCompleted: false,
+    };
+
+    setList([...list, newItem]);
   }
 
   return (
     <div className="App">
       {list.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
-      {list.length > 0 && <ShoppingScreen />}
+      {list.length > 0 && <ShoppingScreen setShowModal={setShowModal} />}
 
-      <ModalForm showModal={showModal} setShowModal={setShowModal} />
+      <ModalForm
+        showModal={showModal}
+        setShowModal={setShowModal}
+        onAddItem={onAddItem}
+      />
     </div>
   );
 }
