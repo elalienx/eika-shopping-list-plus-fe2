@@ -9,13 +9,14 @@ import WelcomeScreen from "./screens/WelcomeScreen";
 export default function App() {
   // Local state
   const [list, setList] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="App">
-      {list.length === 0 && <WelcomeScreen />}
+      {list.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
       {list.length > 0 && <ShoppingScreen />}
 
-      <ModalForm />
+      <ModalForm showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 }

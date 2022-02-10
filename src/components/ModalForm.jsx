@@ -1,4 +1,7 @@
-export default function ModalForm() {
+export default function ModalForm({ showModal, setShowModal }) {
+  // safeguard
+  if (showModal === false) return null;
+
   return (
     <form>
       <h2>Create item</h2>

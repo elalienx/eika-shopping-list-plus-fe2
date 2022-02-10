@@ -1,4 +1,4 @@
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ setShowModal }) {
   return (
     <div>
       <img src="" alt="The words EIKA behind a circle background" />
@@ -13,7 +13,7 @@ export default function WelcomeScreen() {
         the name and the price of the item you want to add. You can also and an
         image after the item is added by touching the camera icon.
       </p>
-      <button>Add item</button>
+      <button onClick={() => setShowModal(true)}>Add item</button>
     </div>
   );
 }
