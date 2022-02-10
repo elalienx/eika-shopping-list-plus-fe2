@@ -11,6 +11,11 @@ export default function App() {
   const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
+  // Methods
+  function onAddItem() {
+    
+  }
+
   return (
     <div className="App">
       {list.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}

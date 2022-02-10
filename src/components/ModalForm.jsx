@@ -14,7 +14,7 @@ export default function ModalForm({ showModal, setShowModal }) {
         <input type="number" placeholder="Ex: 500" />
       </label>
       <button>Submit</button>
-      <button>Cancel</button>
+      <button onClick={() => setShowModal(false)}>Cancel</button>
     </form>
   );
 }
