@@ -27,7 +27,9 @@ export default function App() {
   return (
     <div className="App">
       {list.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
-      {list.length > 0 && <ShoppingScreen setShowModal={setShowModal} />}
+      {list.length > 0 && (
+        <ShoppingScreen list={list} setShowModal={setShowModal} />
+      )}
 
       <ModalForm
         showModal={showModal}
