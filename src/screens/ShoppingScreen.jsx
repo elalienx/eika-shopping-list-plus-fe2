@@ -1,4 +1,4 @@
-export default function ShoppingPage() {
+export default function ShoppingScreen() {
   return (
     <div>
       <h1>Shopping list</h1>
