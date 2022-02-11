@@ -1,5 +1,5 @@
 // NPM packages
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Project files
 import ModalForm from "./components/ModalForm";
@@ -11,7 +11,26 @@ export default function App() {
   const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
+  // Properties
+  const storageKey = "todo-list";
+
   // Methods
+  useEffect(() => loadData(), []);
+  useEffect(() => saveData(), [list]);
+
+  function loadData() {
+    const data = localStorage.getItem(storageKey);
+    const parseData = JSON.parse(data) || [];
+
+    setList(parseData);
+  }
+
+  function saveData() {
+    const data = JSON.stringify(list);
+
+    localStorage.setItem(storageKey, data);
+  }
+
   function onAddItem(name, price) {
     const newItem = {
       id: list.length,
