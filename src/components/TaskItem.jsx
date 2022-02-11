@@ -8,7 +8,6 @@ export default function TaskItem({ item, onCheck }) {
         checked={isCompleted}
         onChange={() => onCheck(id)}
       />
-      <b>{id}.- </b>
       {name}, {price}
     </li>
   );
