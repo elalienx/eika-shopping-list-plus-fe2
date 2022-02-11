@@ -11,6 +11,8 @@ export default function App() {
   const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
+  // Global state
+
   // Properties
   const storageKey = "todo-list";
 
@@ -28,6 +30,7 @@ export default function App() {
   function saveData() {
     const data = JSON.stringify(list);
 
+    console.log("saving...");
     localStorage.setItem(storageKey, data);
   }
 
@@ -43,11 +46,17 @@ export default function App() {
     setList([...list, newItem]);
   }
 
+  // Components*
+
   return (
     <div className="App">
       {list.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
       {list.length > 0 && (
-        <ShoppingScreen list={list} setShowModal={setShowModal} />
+        <ShoppingScreen
+          list={list}
+          setList={setList}
+          setShowModal={setShowModal}
+        />
       )}
 
       <ModalForm
