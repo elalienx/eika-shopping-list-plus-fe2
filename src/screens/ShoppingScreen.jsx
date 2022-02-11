@@ -1,9 +1,8 @@
+// Project files
+import TaskItem from "../components/TaskItem";
+
 export default function ShoppingScreen({ list, setShowModal }) {
-  const TasksItems = list.map((item) => (
-    <li key={item.id}>
-      {item.name}, {item.price}
-    </li>
-  ));
+  const TasksItems = list.map((item) => <TaskItem key={item.id} item={item} />);
 
   return (
     <div>
