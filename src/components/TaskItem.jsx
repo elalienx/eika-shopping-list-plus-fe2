@@ -1,7 +1,9 @@
 export default function TaskItem({ item }) {
+  const { name, price } = item;
+
   return (
     <li>
-      {item.name}, {item.price}
+      {name}, {price}
     </li>
   );
 }
