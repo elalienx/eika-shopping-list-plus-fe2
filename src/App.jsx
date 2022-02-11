@@ -30,7 +30,6 @@ export default function App() {
   function saveData() {
     const data = JSON.stringify(list);
 
-    console.log("saving...");
     localStorage.setItem(storageKey, data);
   }
 

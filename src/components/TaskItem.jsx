@@ -3,7 +3,11 @@ export default function TaskItem({ item, onCheck }) {
 
   return (
     <li>
-      <input type="checkbox" value={isCompleted} onChange={() => onCheck(id)} />
+      <input
+        type="checkbox"
+        checked={isCompleted}
+        onChange={() => onCheck(id)}
+      />
       <b>{id}.- </b>
       {name}, {price}
     </li>

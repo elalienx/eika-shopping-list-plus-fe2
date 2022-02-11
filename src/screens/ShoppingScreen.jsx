@@ -6,15 +6,15 @@ export default function ShoppingScreen({ list, setList, setShowModal }) {
   function onCheck(id) {
     const clonedList = [...list];
     const index = clonedList.findIndex((item) => item.id === id);
-    const status = clonedList[index].isCompleted;
+    const editedItem = clonedList[index];
 
-    clonedList[index].isCompleted = !status;
-    setList((oldList) => [...clonedList]);
+    editedItem.isCompleted = !editedItem.isCompleted;
+    setList(clonedList);
   }
 
   // Component
   const TasksItems = list.map((item) => (
-    <TaskItem key={item.id} item={item}  onCheck={onCheck} />
+    <TaskItem key={item.id} item={item} onCheck={onCheck} />
   ));
 
   return (
