@@ -7,13 +7,13 @@ import ShoppingScreen from "./screens/ShoppingScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 
 export default function App() {
-  // Local state
+  // Local state (track by React)
   const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  // Global state
+  // Global state (track by React)
 
-  // Properties
+  // Properties  (NOT track by React)
   const storageKey = "todo-list";
 
   // Methods

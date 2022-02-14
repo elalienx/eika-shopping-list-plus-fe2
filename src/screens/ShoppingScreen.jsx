@@ -3,6 +3,10 @@ import TaskItem from "../components/TaskItem";
 import Sorter from "../components/Sorter";
 
 export default function ShoppingScreen({ list, setList, setShowModal }) {
+  // Properties
+  const completedItems = list.filter((item) => item.isCompleted === true);
+  const pendingItems = list.filter((item) => item.isCompleted === false);
+
   // Methods
   function onCheck(id) {
     const clonedList = [...list];
@@ -14,7 +18,11 @@ export default function ShoppingScreen({ list, setList, setShowModal }) {
   }
 
   // Component
-  const TasksItems = list.map((item) => (
+  const CompletedItems = completedItems.map((item) => (
+    <TaskItem key={item.id} item={item} onCheck={onCheck} />
+  ));
+
+  const PendingItems = pendingItems.map((item) => (
     <TaskItem key={item.id} item={item} onCheck={onCheck} />
   ));
 
@@ -22,8 +30,9 @@ export default function ShoppingScreen({ list, setList, setShowModal }) {
     <div>
       <h1>Shopping list</h1>
       <Sorter list={list} setList={setList} />
-      <ul>{TasksItems}</ul>
+      <ul>{PendingItems}</ul>
       <button onClick={() => setShowModal(true)}>Add item</button>
+      <ul>{CompletedItems}</ul>
     </div>
   );
 }
