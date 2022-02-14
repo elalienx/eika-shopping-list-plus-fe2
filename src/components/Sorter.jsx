@@ -1,8 +1,23 @@
 export default function Sorter({ list, setList }) {
   // Methods
-  function sortByName() {}
+  function sortByName() {
+    const clonedList = [...list];
+    const sortedList = clonedList.sort((a, b) => {
+      const productA = a.name.toUpperCase();
+      const productB = b.name.toUpperCase();
 
-  function sortByPrice() {}
+      return productA > productB ? 1 : -1;
+    });
+
+    setList(sortedList);
+  }
+
+  function sortByPrice() {
+    const clonedList = [...list];
+    clonedList.sort((a, b) => b.price - a.price);
+
+    setList(clonedList);
+  }
 
   return (
     <section>
