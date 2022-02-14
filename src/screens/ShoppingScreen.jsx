@@ -1,5 +1,6 @@
 // Project files
 import TaskItem from "../components/TaskItem";
+import Sorter from "../components/Sorter";
 
 export default function ShoppingScreen({ list, setList, setShowModal }) {
   // Methods
@@ -20,6 +21,7 @@ export default function ShoppingScreen({ list, setList, setShowModal }) {
   return (
     <div>
       <h1>Shopping list</h1>
+      <Sorter list={list} setList={setList} />
       <ul>{TasksItems}</ul>
       <button onClick={() => setShowModal(true)}>Add item</button>
     </div>
