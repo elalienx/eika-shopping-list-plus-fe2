@@ -24,6 +24,17 @@ export default function ShoppingScreen({ list, setList, setShowModal }) {
     setList(clonedList);
   }
 
+  /**
+   * Check find instead of findIndex to return the whole object intead of just the object index.
+   */
+  function editList(editedItem) {
+    const clonedList = [...list];
+    const index = clonedList.findIndex((item) => item.id === editedItem.id);
+
+    clonedList[index] = editedItem;
+    setList(clonedList);
+  }
+
   return (
     <div>
       <h1>Shopping list</h1>
