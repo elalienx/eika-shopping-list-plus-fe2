@@ -14,12 +14,10 @@ export default function ModalForm({ modalState, onAddItem }) {
     event.preventDefault();
 
     onAddItem(name, price);
-    setName("");
-    setPrice("");
-    setShowModal(false);
+    resetForm();
   }
 
-  function onCancel() {
+  function resetForm() {
     setName("");
     setPrice("");
     setShowModal(false);
@@ -77,7 +75,7 @@ export default function ModalForm({ modalState, onAddItem }) {
         />
       </label>
       <button>Submit</button>
-      <button onClick={onCancel}>Cancel</button>
+      <button onClick={resetForm}>Cancel</button>
     </form>
   );
 }
