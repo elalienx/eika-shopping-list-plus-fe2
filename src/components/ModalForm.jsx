@@ -1,7 +1,9 @@
 // NPM package
 import { useState } from "react";
 
-export default function ModalForm({ showModal, setShowModal, onAddItem }) {
+export default function ModalForm({ modalState, onAddItem }) {
+  const [showModal, setShowModal] = modalState;
+
   // Local state
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");

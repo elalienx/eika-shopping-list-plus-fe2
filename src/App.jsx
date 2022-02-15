@@ -67,11 +67,7 @@ export default function App() {
         />
       )}
 
-      <ModalForm
-        showModal={showModal}
-        setShowModal={setShowModal}
-        onAddItem={onAddItem}
-      />
+      <ModalForm modalState={[showModal, setShowModal]} onAddItem={onAddItem} />
     </div>
   );
 }
