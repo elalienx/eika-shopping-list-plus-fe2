@@ -7,13 +7,18 @@ import ShoppingScreen from "./screens/ShoppingScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 
 export default function App() {
-  // Local state (track by React)
+  /**
+   * Local and Global state "update" the page when they change.
+   * Properties don't.
+   */
+  // Local state
   const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  // Global state (track by React)
+  // Global state
+  /** We don't have global state in this project */
 
-  // Properties  (NOT track by React)
+  // Properties
   const storageKey = "todo-list";
 
   // Methods
@@ -45,7 +50,11 @@ export default function App() {
     setList([...list, newItem]);
   }
 
-  // Components*
+  // Components
+  /**
+   * App.jsx does not have components create directly here.
+   * Always try to extract this components into separate files.
+   */
 
   return (
     <div className="App">
