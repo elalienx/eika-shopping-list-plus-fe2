@@ -15,18 +15,6 @@ export default function ShoppingScreen({ list, setList, setShowModal }) {
   const toggleLabel = showCompleted ? "Hide" : "View";
 
   // Methods
-  function onCheck(id) {
-    const clonedList = [...list];
-    const index = clonedList.findIndex((item) => item.id === id);
-    const editedItem = clonedList[index];
-
-    editedItem.isCompleted = !editedItem.isCompleted;
-    setList(clonedList);
-  }
-
-  /**
-   * Check find instead of findIndex to return the whole object intead of just the object index.
-   */
   function editList(editedItem) {
     const clonedList = [...list];
     const index = clonedList.findIndex((item) => item.id === editedItem.id);
@@ -39,12 +27,12 @@ export default function ShoppingScreen({ list, setList, setShowModal }) {
     <div>
       <h1>Shopping list</h1>
       <Sorter list={list} setList={setList} />
-      <TaskList list={pendingItems} onCheck={onCheck} />
+      <TaskList list={pendingItems} editList={editList} />
       <button onClick={() => setShowModal(true)}>Add item</button>
       <button onClick={() => setShowCompleted(!showCompleted)}>
         {toggleLabel} completed items
       </button>
-      {showCompleted && <TaskList list={completedItems} onCheck={onCheck} />}
+      {showCompleted && <TaskList list={completedItems} editList={editList} />}
     </div>
   );
 }
