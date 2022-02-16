@@ -61,8 +61,7 @@ export default function App() {
       {list.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
       {list.length > 0 && (
         <ShoppingScreen
-          list={list}
-          setList={setList}
+          listState={[list, setList]}
           setShowModal={setShowModal}
         />
       )}

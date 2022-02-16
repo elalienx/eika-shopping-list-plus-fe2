@@ -5,7 +5,9 @@ import { useState } from "react";
 import TaskList from "../components/TaskList";
 import Sorter from "../components/Sorter";
 
-export default function ShoppingScreen({ list, setList, setShowModal }) {
+export default function ShoppingScreen({ listState, setShowModal }) {
+  const [list, setList] = listState;
+
   // Local state
   const [showCompleted, setShowCompleted] = useState(false);
 
