@@ -1,9 +1,10 @@
 // Project files
 import readFile from "../scripts/readFile";
 import resizeImage from "../scripts/resizeImage";
+import { uploadFile } from "../scripts/cloudStorage";
 
 export default function TaskItem({ item, editList }) {
-  const { id, name, price, isCompleted } = item;
+  const { name, price, imageURL, isCompleted } = item;
 
   // Methods
   function onCheck() {
@@ -14,19 +15,25 @@ export default function TaskItem({ item, editList }) {
   }
 
   async function onAddImage(event) {
-    // Step 1
+    // Step 1: Get file
     const file = event.target.files[0]; // instant
 
-    // Step 2
+    // Step 2: Generate unique filename
     const uniqueId = new Date().getTime(); // instant
     const filename = `thumbnail-${uniqueId}.png`; // instant
 
-    // Step 3
+    // Step 3: Resize image
     const image = await readFile(file); // either 0.5 or 1 seconds or more???
     const resizedImage = await resizeImage(image, 88, 88);
 
-    // Step 4
-    // const imageURL = await uploadImage(resizedImage, filename);
+    // Step 4: Upload the image AND return the URL
+    const imageURL = await uploadFile(resizedImage, filename);
+
+    // Step 5: Store the imageURL
+    const clonedItem = { ...item };
+
+    clonedItem.imageURL = imageURL;
+    editList(clonedItem);
   }
 
   return (
@@ -38,6 +45,8 @@ export default function TaskItem({ item, editList }) {
         accept="image/png, image/jpeg"
         onChange={(event) => onAddImage(event)}
       />
+      {/* Step 6: Display image */}
+      <img src={imageURL} alt="Thumbnail of the product" />
     </li>
   );
 }
