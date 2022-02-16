@@ -26,7 +26,7 @@ export default function TaskItem({ item, editList }) {
     const resizedImage = await resizeImage(image, 88, 88);
 
     // Step 4
-    const imageURL = await uploadImage(resizedImage, filename)
+    // const imageURL = await uploadImage(resizedImage, filename);
   }
 
   return (
