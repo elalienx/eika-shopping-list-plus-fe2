@@ -38,7 +38,7 @@ export default function App() {
     localStorage.setItem(storageKey, data);
   }
 
-  function onAddItem(name, price) {
+  function addItem(name, price) {
     const newItem = {
       id: list.length,
       name: name,
@@ -66,7 +66,7 @@ export default function App() {
         />
       )}
 
-      <ModalForm modalState={[showModal, setShowModal]} onAddItem={onAddItem} />
+      <ModalForm modalState={[showModal, setShowModal]} addItem={addItem} />
     </div>
   );
 }
