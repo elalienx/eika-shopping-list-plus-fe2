@@ -1,7 +1,7 @@
 // NPM package
 import { useState } from "react";
 
-export default function ModalForm({ modalState, addItem }) {
+export default function ModalForm({ modalState, addItemToList }) {
   const [showModal, setShowModal] = modalState;
 
   // Local state
@@ -13,7 +13,7 @@ export default function ModalForm({ modalState, addItem }) {
   function onSubmit(event) {
     event.preventDefault();
 
-    addItem(name, price);
+    addItemToList(name, price);
     resetForm();
   }
 
