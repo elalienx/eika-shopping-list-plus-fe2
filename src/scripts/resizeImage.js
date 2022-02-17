@@ -1,6 +1,5 @@
 export default async function resizeImage(image, width = 100, height = 100) {
   const canvas = document.createElement("canvas");
-  const originalContext = canvas.getContext("2d");
   const resizedContext = canvas.getContext("2d");
   const resizedImage = new Image();
   let newWidth = 0;
@@ -11,7 +10,6 @@ export default async function resizeImage(image, width = 100, height = 100) {
 
   newWidth = resizedImage.width;
   newHeight = resizedImage.height;
-  originalContext.drawImage(resizedImage, 0, 0);
 
   // Handles the proportion scaling
   if (newWidth > newHeight) {
