@@ -1,42 +1,35 @@
-export default async function resizeImage(image, width, height) {
-  const originalImage = await loadImage(image);
-  const newSize = proportionalScale(originalImage, width, height);
+export default async function resizeImage(image, width = 100, height = 100) {
   const canvas = document.createElement("canvas");
-  const context = canvas.getContext("2d");
+  const originalContext = canvas.getContext("2d");
+  const resizedContext = canvas.getContext("2d");
+  const resizedImage = new Image();
+  let newWidth = 0;
+  let newHeight = 0;
 
-  canvas.width = newSize.width;
-  canvas.height = newSize.height;
-  context.drawImage(originalImage, 0, 0, newSize.width, newSize.height);
+  resizedImage.src = image;
+  await new Promise((result) => (resizedImage.onload = result)); // to force the machine to wait until the image loading is done
 
-  return await canvasToPNGFile(canvas);
-}
+  newWidth = resizedImage.width;
+  newHeight = resizedImage.height;
+  originalContext.drawImage(resizedImage, 0, 0);
 
-function proportionalScale(image, width, height) {
-  let newWidth = image.width;
-  let newHeight = image.height;
-
+  // Handles the proportion scaling
   if (newWidth > newHeight) {
-    newHeight *= width / newWidth;
-    newWidth = width;
+    if (newWidth > width) {
+      newHeight *= width / newWidth;
+      newWidth = width;
+    }
   } else {
-    newWidth *= height / newHeight;
-    newHeight = height;
+    if (newHeight > height) {
+      newWidth *= height / newHeight;
+      newHeight = height;
+    }
   }
 
-  return { width: newWidth, height: newHeight };
-}
+  canvas.width = newWidth;
+  canvas.height = newHeight;
+  resizedContext.drawImage(resizedImage, 0, 0, newWidth, newHeight);
 
-async function loadImage(image) {
-  const newImage = new Image();
-  newImage.src = image;
-
-  // to force the machine to wait until the image loading is done
-  await new Promise((result) => (newImage.onload = result));
-
-  return newImage;
-}
-
-async function canvasToPNGFile(canvas) {
   const canvasToDataURL = canvas.toDataURL("image/png");
   const DataURLToBlob = await fetch(canvasToDataURL);
   const BlobToFile = await DataURLToBlob.blob();
