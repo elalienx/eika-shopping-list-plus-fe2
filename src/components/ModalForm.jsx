@@ -4,6 +4,7 @@ import { useState } from "react";
 // Project file
 import form from "../data/form.json";
 import validateString from "../scripts/validating-form/validateString";
+import validateNumber from "../scripts/validating-form/validateNumber";
 import InputField from "./InputField";
 
 export default function ModalForm({ modalState, addItemToList }) {
@@ -37,14 +38,10 @@ export default function ModalForm({ modalState, addItemToList }) {
   }
 
   function validatePrice() {
-    const parsePrice = Number(price.trim());
+    const validation = validateNumber(price);
 
-    if (parsePrice > 0) {
-      setPrice(parsePrice);
-    } else {
-      alert("The price must cost more than 0");
-      setPrice("");
-    }
+    setPrice(validation.data);
+    setErrorPrice(validation.error);
   }
 
   // Safeguard
@@ -59,14 +56,12 @@ export default function ModalForm({ modalState, addItemToList }) {
         error={errorName}
         onValidate={validateName}
       />
-
       <InputField
         data={form.price}
         state={[price, setPrice]}
         error={errorPrice}
         onValidate={validatePrice}
       />
-
       <button>Submit</button>
       <button onClick={resetForm}>Cancel</button>
     </form>
