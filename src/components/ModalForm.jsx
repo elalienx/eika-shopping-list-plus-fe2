@@ -1,15 +1,21 @@
 // NPM package
 import { useState } from "react";
 
+// Project file
+import form from "../data/form.json";
+import validateString from "../scripts/validating-form/validateString";
+import InputField from "./InputField";
+
 export default function ModalForm({ modalState, addItemToList }) {
   const [showModal, setShowModal] = modalState;
 
   // Local state
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [errorName, setErrorName] = useState("");
+  const [errorPrice, setErrorPrice] = useState("");
 
   // Methods
-  // The goal of the submit function is to send data elsewhere (submit it)
   function onSubmit(event) {
     event.preventDefault();
 
@@ -24,15 +30,10 @@ export default function ModalForm({ modalState, addItemToList }) {
   }
 
   function validateName() {
-    const parsedName = name.trim();
+    const validation = validateString(name);
 
-    if (parsedName.length > 0) {
-      // "abc".legth = 3
-      setName(parsedName);
-    } else {
-      alert("The product name must not be empty");
-      setName("");
-    }
+    setName(validation.data);
+    setErrorName(validation.error);
   }
 
   function validatePrice() {
@@ -52,28 +53,20 @@ export default function ModalForm({ modalState, addItemToList }) {
   return (
     <form onSubmit={(event) => onSubmit(event)}>
       <h2>Create item</h2>
-      <label>
-        Product name
-        <input
-          type="text"
-          placeholder="Ex: Chair"
-          required
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          onBlur={validateName}
-        />
-      </label>
-      <label>
-        Product price
-        <input
-          type="number"
-          placeholder="Ex: 500"
-          required
-          value={price}
-          onChange={(event) => setPrice(event.target.value)}
-          onBlur={validatePrice}
-        />
-      </label>
+      <InputField
+        data={form.name}
+        state={[name, setName]}
+        error={errorName}
+        onValidate={validateName}
+      />
+
+      <InputField
+        data={form.price}
+        state={[price, setPrice]}
+        error={errorPrice}
+        onValidate={validatePrice}
+      />
+
       <button>Submit</button>
       <button onClick={resetForm}>Cancel</button>
     </form>

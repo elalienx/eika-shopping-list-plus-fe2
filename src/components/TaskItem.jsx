@@ -1,7 +1,7 @@
 // Project files
-import readFile from "../scripts/readFile";
-import resizeImage from "../scripts/resizeImage";
-import { uploadFile } from "../scripts/cloudStorage";
+import readFile from "../scripts/upload-image/readFile";
+import resizeImage from "../scripts/upload-image/resizeImage";
+import { uploadFile } from "../scripts/upload-image/cloudStorage";
 
 export default function TaskItem({ item, editList }) {
   const { name, price, imageURL, isCompleted } = item;
