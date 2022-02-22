@@ -1,3 +1,4 @@
+
 export default function InputField({ data, state, error, onValidate }) {
   const { label, type, placeholder, required, autoFocus } = data;
   const [getter, setter] = state;
@@ -17,4 +18,36 @@ export default function InputField({ data, state, error, onValidate }) {
       {error && <small>{error}</small>}
     </label>
   );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 }
