@@ -3,8 +3,8 @@ import { useState } from "react";
 
 // Project file
 import form from "../data/form.json";
-import validateString from "../scripts/validating-form/validateString";
-import validateNumber from "../scripts/validating-form/validateNumber";
+import validateName from "../scripts/validating-form/validateName";
+import validatePrice from "../scripts/validating-form/validatePrice";
 import InputField from "./InputField";
 
 export default function ModalForm({ modalState, addItemToList }) {
@@ -13,8 +13,6 @@ export default function ModalForm({ modalState, addItemToList }) {
   // Local state
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [errorName, setErrorName] = useState("");
-  const [errorPrice, setErrorPrice] = useState("");
 
   // Methods
   function onSubmit(event) {
@@ -30,20 +28,6 @@ export default function ModalForm({ modalState, addItemToList }) {
     setShowModal(false);
   }
 
-  function validateName() {
-    const validation = validateString(name);
-
-    setName(validation.data);
-    setErrorName(validation.error);
-  }
-
-  function validatePrice() {
-    const validation = validateNumber(price);
-
-    setPrice(validation.data);
-    setErrorPrice(validation.error);
-  }
-
   // Safeguard
   if (showModal === false) return null;
 
@@ -51,16 +35,14 @@ export default function ModalForm({ modalState, addItemToList }) {
     <form onSubmit={(event) => onSubmit(event)}>
       <h2>Create item</h2>
       <InputField
-        data={form.name}
+        settings={form.name}
         state={[name, setName]}
-        error={errorName}
-        onValidate={validateName}
+        validation={validateName}
       />
       <InputField
-        data={form.price}
+        settings={form.price}
         state={[price, setPrice]}
-        error={errorPrice}
-        onValidate={validatePrice}
+        validation={validatePrice}
       />
       <button>Submit</button>
       <button onClick={resetForm}>Cancel</button>

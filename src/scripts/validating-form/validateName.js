@@ -1,4 +1,4 @@
-export default function validateString(string) {
+export default function validateName(string) {
   const parsedString = string.trim();
   let data = "";
   let error = "";
