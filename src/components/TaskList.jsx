@@ -2,6 +2,7 @@
 import TaskItem from "./TaskItem";
 
 export default function TaskList({ list, editList }) {
+  // Components
   const TaskItems = list.map((item) => (
     <TaskItem key={item.id} item={item} editList={editList} />
   ));
