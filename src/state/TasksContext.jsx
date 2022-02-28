@@ -1,5 +1,5 @@
 // NPM packages
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const Context = createContext(null);
 
@@ -8,13 +8,25 @@ export function TasksProvider({ children }) {
   const [tasks, setTasks] = useState([]);
 
   // Properties
-  const values = {
-    tasks,
-    addItem,
-    editItem,
-    replaceTasks,
-    temporalReplaceTasks,
-  };
+  const values = { tasks, addItem, editItem, replaceTasks };
+  const storageKey = "eika-fe2";
+
+  // Methods
+  useEffect(() => loadList(), []);
+  useEffect(() => saveList(), [tasks]);
+
+  function loadList() {
+    const data = localStorage.getItem(storageKey);
+    const parseData = JSON.parse(data) || [];
+
+    setTasks(parseData);
+  }
+
+  function saveList() {
+    const data = JSON.stringify(tasks);
+
+    localStorage.setItem(storageKey, data);
+  }
 
   function addItem(name, price) {
     const newItem = {
@@ -43,10 +55,6 @@ export function TasksProvider({ children }) {
     if (newTasks.length !== tasks.length) throw new Error(errorText);
 
     setTasks(newTasks);
-  }
-
-  function temporalReplaceTasks(newTasks) {
-    setTasks(newTasks)
   }
 
   return <Context.Provider value={values}>{children}</Context.Provider>;
