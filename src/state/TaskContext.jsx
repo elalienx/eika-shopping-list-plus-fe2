@@ -12,7 +12,14 @@ export function TaskProvider({ children }) {
   const values = { tasks } 
 
   // Methods
-  // inventory of which components are modifying the tasks
+  /**
+   * 1. load tasks from localstorage
+   * 2. save tasks from localstorage
+   * 3. add item to tasks
+   * 4. edit list
+   * 5. sort by name * (replace list)
+   * 6. sort by price * (replace list)
+   */
 
   return <Context.Provider value={values}>{children}</Context.Provider>;
 }
