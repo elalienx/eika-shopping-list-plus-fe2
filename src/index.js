@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 
 // Project files
 import App from "./App";
-import { TasksProvider } from "./state/TaskContext";
+import { TasksProvider } from "./state/TasksContext";
 
 ReactDOM.render(
   <React.StrictMode>

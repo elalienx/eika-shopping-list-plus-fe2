@@ -6,8 +6,11 @@ import form from "../data/form.json";
 import validateName from "../scripts/validating-form/validateName";
 import validatePrice from "../scripts/validating-form/validatePrice";
 import InputField from "./InputField";
+import { useTasks } from "../state/TasksContext";
 
-export default function ModalForm({ modalState, addItemToList }) {
+export default function ModalForm({ modalState }) {
+  const { addItem } = useTasks();
+
   const [showModal, setShowModal] = modalState;
 
   // Local state
@@ -18,7 +21,7 @@ export default function ModalForm({ modalState, addItemToList }) {
   function onSubmit(event) {
     event.preventDefault();
 
-    addItemToList(name, price);
+    addItem(name, price);
     resetForm();
   }
 

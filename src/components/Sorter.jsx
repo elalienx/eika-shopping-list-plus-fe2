@@ -1,4 +1,4 @@
-export default function Sorter({ list, setList }) {
+export default function Sorter({ list, replaceTasks }) {
   // Methods
   function sortByName() {
     const clonedList = [...list];
@@ -9,14 +9,14 @@ export default function Sorter({ list, setList }) {
       return productA > productB ? 1 : -1;
     });
 
-    setList(sortedList);
+    replaceTasks(sortedList);
   }
 
   function sortByPrice() {
     const clonedList = [...list];
     clonedList.sort((a, b) => b.price - a.price);
 
-    setList(clonedList);
+    replaceTasks(clonedList);
   }
 
   return (

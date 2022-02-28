@@ -2,8 +2,10 @@
 import readFile from "../scripts/upload-image/readFile";
 import resizeImage from "../scripts/upload-image/resizeImage";
 import { uploadFile } from "../scripts/upload-image/cloudStorage";
+import { useTasks } from "../state/TasksContext";
 
-export default function TaskItem({ item, editList }) {
+export default function TaskItem({ item }) {
+  const { editItem } = useTasks();
   const { name, price, imageURL, isCompleted } = item;
 
   // Methods
@@ -11,7 +13,7 @@ export default function TaskItem({ item, editList }) {
     const clonedItem = { ...item };
 
     clonedItem.isCompleted = !clonedItem.isCompleted;
-    editList(clonedItem);
+    editItem(clonedItem);
   }
 
   async function onAddImage(event) {
@@ -33,7 +35,7 @@ export default function TaskItem({ item, editList }) {
     const clonedItem = { ...item };
 
     clonedItem.imageURL = imageURL;
-    editList(clonedItem);
+    editItem(clonedItem);
   }
 
   return (

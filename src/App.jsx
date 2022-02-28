@@ -5,58 +5,40 @@ import { useEffect, useState } from "react";
 import ModalForm from "./components/ModalForm";
 import ShoppingScreen from "./screens/ShoppingScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
+import { useTasks } from "./state/TasksContext";
 
 export default function App() {
+  const { tasks, replaceTasks } = useTasks();
+
   // Local state
-  const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   // Properties
-  const storageKey = "todo-list";
+  const storageKey = "eika-tasks";
 
   // Methods
   useEffect(() => loadData(), []);
-  useEffect(() => saveData(), [list]);
+  useEffect(() => saveData(), [tasks]);
 
   function loadData() {
     const data = localStorage.getItem(storageKey);
     const parseData = JSON.parse(data) || [];
 
-    setList(parseData);
+    replaceTasks(parseData);
   }
 
   function saveData() {
-    const data = JSON.stringify(list);
+    const data = JSON.stringify(tasks);
 
     localStorage.setItem(storageKey, data);
   }
 
-  function addItemToList(name, price) {
-    const newItem = {
-      id: list.length,
-      name: name,
-      price: price,
-      imageURL: "",
-      isCompleted: false,
-    };
-
-    setList([...list, newItem]);
-  }
-
   return (
     <div className="App">
-      {list.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
-      {list.length > 0 && (
-        <ShoppingScreen
-          listState={[list, setList]}
-          setShowModal={setShowModal}
-        />
-      )}
+      {tasks.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
+      {tasks.length > 0 && <ShoppingScreen setShowModal={setShowModal} />}
 
-      <ModalForm
-        modalState={[showModal, setShowModal]}
-        addItemToList={addItemToList}
-      />
+      <ModalForm modalState={[showModal, setShowModal]} />
     </div>
   );
 }
