@@ -9,7 +9,13 @@ export function TasksProvider({ children }) {
   const [tasks, setTasks] = useState([]);
 
   // Properties
-  const values = { tasks, addItem, editItem, replaceTasks };
+  const values = {
+    tasks,
+    addItem,
+    editItem,
+    replaceTasks,
+    temporalReplaceTasks,
+  };
 
   function addItem(name, price) {
     const newItem = {
@@ -32,7 +38,16 @@ export function TasksProvider({ children }) {
   }
 
   function replaceTasks(newTasks) {
+    const errorText = "The new list is smaller than the old one";
+
+    // Safeguard
+    if (newTasks.length !== tasks.length) throw new Error(errorText);
+
     setTasks(newTasks);
+  }
+
+  function temporalReplaceTasks(newTasks) {
+    setTasks(newTasks)
   }
 
   return <Context.Provider value={values}>{children}</Context.Provider>;

@@ -8,7 +8,7 @@ import WelcomeScreen from "./screens/WelcomeScreen";
 import { useTasks } from "./state/TasksContext";
 
 export default function App() {
-  const { tasks, replaceTasks } = useTasks();
+  const { tasks, temporalReplaceTasks } = useTasks();
 
   // Local state
   const [showModal, setShowModal] = useState(false);
@@ -24,7 +24,7 @@ export default function App() {
     const data = localStorage.getItem(storageKey);
     const parseData = JSON.parse(data) || [];
 
-    replaceTasks(parseData);
+    temporalReplaceTasks(parseData);
   }
 
   function saveData() {
