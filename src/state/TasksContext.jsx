@@ -35,13 +35,6 @@ export function TasksProvider({ children }) {
     setTasks(newTasks);
   }
 
-  /**
-   * 1. add item ✅
-   * 2. edit item ✅
-   * 3. sort by name
-   * 4. sort by price
-   */
-
   return <Context.Provider value={values}>{children}</Context.Provider>;
 }
 
