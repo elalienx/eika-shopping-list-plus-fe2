@@ -10,7 +10,6 @@ import { useTasks } from "../state/TasksContext";
 
 export default function ModalForm({ modalState }) {
   const { addItem } = useTasks();
-
   const [showModal, setShowModal] = modalState;
 
   // Local state
