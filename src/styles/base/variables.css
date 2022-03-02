@@ -1,0 +1,21 @@
+/* Colors */
+:root {
+  --color-primary: var(--swatch-blue);
+  --color-text: black;
+}
+
+/* Space */
+:root {
+  --space-small: 8px;
+  --space-medium: 16px;
+  --space-big: 24px;
+  --space-ultra: 48px;
+}
+
+/* Other */
+:root {
+  --border-radius: var(--space-small);
+}
+
+/* Media queries */
+/* To be done later... */

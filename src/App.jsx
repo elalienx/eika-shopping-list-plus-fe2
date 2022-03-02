@@ -6,6 +6,7 @@ import ModalForm from "./components/ModalForm";
 import ShoppingScreen from "./screens/ShoppingScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import { useTasks } from "./state/TasksContext";
+import "./styles/style.css";
 
 export default function App() {
   const { tasks, temporalReplaceTasks } = useTasks();
