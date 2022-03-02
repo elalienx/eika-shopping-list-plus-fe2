@@ -36,10 +36,39 @@ export default function App() {
 
   return (
     <div className="App">
-      {tasks.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
+      {/* {tasks.length === 0 && <WelcomeScreen setShowModal={setShowModal} />}
       {tasks.length > 0 && <ShoppingScreen setShowModal={setShowModal} />}
+     
+      <ModalForm modalState={[showModal, setShowModal]} /> */}
 
-      <ModalForm modalState={[showModal, setShowModal]} />
+      {/* Style test */}
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+      <small>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </small>
+      <small>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </small>
+      <br />
+      <label>Label</label>
     </div>
   );
 }
