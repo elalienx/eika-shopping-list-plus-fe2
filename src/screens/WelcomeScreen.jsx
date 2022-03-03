@@ -1,7 +1,7 @@
 // Project files
 import HeroImage from "../assets/urban-shopping.png";
 
-export default function WelcomeScreen({ setShowModal }) {
+export default function WelcomeScreen({ setModal }) {
   return (
     <div id="welcome-screen">
       <img
@@ -18,7 +18,10 @@ export default function WelcomeScreen({ setShowModal }) {
         the name and the price of the item you want to add. You can also and an
         image after the item is added by touching the camera icon.
       </p>
-      <button className="button-primary" onClick={() => setShowModal(true)}>
+      <button
+        className="button-primary"
+        onClick={() => setModal(<span>hello</span>)}
+      >
         Add item
       </button>
     </div>

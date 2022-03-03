@@ -35,23 +35,20 @@ export default function ModalForm({ modalState }) {
   if (showModal === false) return null;
 
   return (
-    <div className="modal">
-      <div className="background"></div>
-      <form className="content" onSubmit={(event) => onSubmit(event)}>
-        <h2>Create item</h2>
-        <InputField
-          settings={form.name}
-          state={[name, setName]}
-          validation={validateName}
-        />
-        <InputField
-          settings={form.price}
-          state={[price, setPrice]}
-          validation={validatePrice}
-        />
-        <button>Submit</button>
-        <button onClick={resetForm}>Cancel</button>
-      </form>
-    </div>
+    <form className="content" onSubmit={(event) => onSubmit(event)}>
+      <h2>Create item</h2>
+      <InputField
+        settings={form.name}
+        state={[name, setName]}
+        validation={validateName}
+      />
+      <InputField
+        settings={form.price}
+        state={[price, setPrice]}
+        validation={validatePrice}
+      />
+      <button>Submit</button>
+      <button onClick={resetForm}>Cancel</button>
+    </form>
   );
 }

@@ -6,7 +6,7 @@ import TaskList from "../components/TaskList";
 import Sorter from "../components/Sorter";
 import { useTasks } from "../state/TasksContext";
 
-export default function ShoppingScreen({ setShowModal }) {
+export default function ShoppingScreen({ setModal }) {
   const { tasks, replaceTasks } = useTasks();
 
   // Local state
@@ -22,7 +22,10 @@ export default function ShoppingScreen({ setShowModal }) {
       <h1>Shopping list</h1>
       <Sorter list={tasks} replaceTasks={replaceTasks} />
       <TaskList list={pendingItems} />
-      <button className="button-primary" onClick={() => setShowModal(true)}>
+      <button
+        className="button-primary"
+        onClick={() => setModal(<span>bye!!</span>)}
+      >
         Add item
       </button>
       <button onClick={() => setShowCompleted(!showCompleted)}>
