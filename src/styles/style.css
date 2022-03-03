@@ -6,6 +6,7 @@
 
 /* Components */
 @import "./components/button.css";
+@import "./components/ModalForm.css";
 
 /* Screens */
 @import "./screens/WelcomeScreen.css";
