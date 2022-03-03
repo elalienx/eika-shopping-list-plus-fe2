@@ -69,6 +69,8 @@ export default function App() {
       </small>
       <br />
       <label>Label</label>
+      <br />
+      <button>Button</button>
     </div>
   );
 }
