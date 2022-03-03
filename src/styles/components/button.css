@@ -1,5 +1,5 @@
 /* Targets the tag */
-button {
+.button-primary {
   --height: 44px;
 
   width: 200px;
@@ -10,6 +10,6 @@ button {
   border: none;
 }
 
-button:hover {
+.button-primary:hover {
   background-color: #004a8a;
 }

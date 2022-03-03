@@ -22,7 +22,9 @@ export default function ShoppingScreen({ setShowModal }) {
       <h1>Shopping list</h1>
       <Sorter list={tasks} replaceTasks={replaceTasks} />
       <TaskList list={pendingItems} />
-      <button onClick={() => setShowModal(true)}>Add item</button>
+      <button className="button-primary" onClick={() => setShowModal(true)}>
+        Add item
+      </button>
       <button onClick={() => setShowCompleted(!showCompleted)}>
         {toggleLabel} completed items
       </button>
