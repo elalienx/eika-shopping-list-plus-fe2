@@ -6,6 +6,7 @@ import ModalForm from "./components/ModalForm";
 import ShoppingScreen from "./screens/ShoppingScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import { useTasks } from "./state/TasksContext";
+import ExamplePicture from "./assets/urban-shopping.png";
 import "./styles/style.css";
 
 export default function App() {
@@ -71,6 +72,8 @@ export default function App() {
       <label>Label</label>
       <br />
       <button>Button</button>
+      <br />
+      <img src={ExamplePicture} alt="Write down the description" />
     </div>
   );
 }
