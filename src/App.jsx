@@ -13,7 +13,7 @@ export default function App() {
   const { tasks, temporalReplaceTasks } = useTasks();
 
   // Local state
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   // Properties
   const storageKey = "eika-tasks";
