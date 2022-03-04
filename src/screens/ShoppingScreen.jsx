@@ -19,19 +19,24 @@ export default function ShoppingScreen({ setModal }) {
   const toggleLabel = showCompleted ? "Hide" : "View";
 
   return (
-    <div>
+    <div id="shopping-screen">
       <h1>Shopping list</h1>
       <Sorter list={tasks} replaceTasks={replaceTasks} />
       <TaskList list={pendingItems} />
-      <button
-        className="button-primary"
-        onClick={() => setModal(<ModalForm setModal={setModal} />)}
-      >
-        Add item
-      </button>
-      <button onClick={() => setShowCompleted(!showCompleted)}>
-        {toggleLabel} completed items
-      </button>
+      <div className="main-buttons">
+        <button
+          className="button-primary"
+          onClick={() => setModal(<ModalForm setModal={setModal} />)}
+        >
+          Add item
+        </button>
+        <button
+          className="button-secondary"
+          onClick={() => setShowCompleted(!showCompleted)}
+        >
+          {toggleLabel} completed items
+        </button>
+      </div>
       {showCompleted && <TaskList list={completedItems} />}
     </div>
   );

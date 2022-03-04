@@ -8,5 +8,5 @@ export default function TaskList({ list }) {
   // Safeguards
   if (list.length === 0) return <p>No items to show...</p>;
 
-  return <ul>{TaskItems}</ul>;
+  return <ul className="task-list">{TaskItems}</ul>;
 }

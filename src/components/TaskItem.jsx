@@ -17,21 +17,12 @@ export default function TaskItem({ item }) {
   }
 
   async function onAddImage(event) {
-    // Step 1: Get file
-    const file = event.target.files[0]; // instant
-
-    // Step 2: Generate unique filename
-    const uniqueId = new Date().getTime(); // instant
-    const filename = `thumbnail-${uniqueId}.png`; // instant
-
-    // Step 3: Resize image
-    const image = await readFile(file); // either 0.5 or 1 seconds or more???
+    const file = event.target.files[0];
+    const uniqueId = new Date().getTime();
+    const filename = `thumbnail-${uniqueId}.png`;
+    const image = await readFile(file);
     const resizedImage = await resizeImage(image, 88, 88);
-
-    // Step 4: Upload the image AND return the URL
     const imageURL = await uploadFile(resizedImage, filename);
-
-    // Step 5: Store the imageURL
     const clonedItem = { ...item };
 
     clonedItem.imageURL = imageURL;
@@ -39,7 +30,7 @@ export default function TaskItem({ item }) {
   }
 
   return (
-    <li>
+    <li className="task-item">
       <input type="checkbox" checked={isCompleted} onChange={onCheck} />
       {name}, {price}
       <input
@@ -47,7 +38,6 @@ export default function TaskItem({ item }) {
         accept="image/png, image/jpeg"
         onChange={(event) => onAddImage(event)}
       />
-      {/* Step 6: Display image */}
       <img src={imageURL} alt="Thumbnail of the product" />
     </li>
   );

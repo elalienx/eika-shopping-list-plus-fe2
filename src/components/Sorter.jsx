@@ -20,7 +20,7 @@ export default function Sorter({ list, replaceTasks }) {
   }
 
   return (
-    <section>
+    <section className="sorter">
       Sort by:
       <button onClick={sortByName}>Name</button>
       <button onClick={sortByPrice}>Price</button>
