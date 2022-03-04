@@ -1,0 +1,7 @@
+.modal-form {
+  padding: var(--space-small);
+}
+
+.modal-form h2 {
+  text-align: center;
+}

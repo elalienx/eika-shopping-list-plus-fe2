@@ -2,10 +2,6 @@
 
 body {
   margin: 0;
-}
-
-.App {
-  padding: var(--space-big);
   font-family: "Noto Sans", sans-serif;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
@@ -17,6 +13,10 @@ img {
   height: auto;
 }
 
-.header img {
+.App {
+  padding: var(--space-big);
+}
+
+.App .header img {
   width: 100px;
 }

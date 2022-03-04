@@ -1,0 +1,13 @@
+/* Targets the tag */
+.button-secondary {
+  --height: 44px;
+
+  width: 200px;
+  height: var(--height);
+  background: none;
+  border: none;
+}
+
+.button-secondary:hover {
+  text-decoration: underline;
+}

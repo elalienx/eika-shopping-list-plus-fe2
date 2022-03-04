@@ -30,7 +30,7 @@ export default function ModalForm({ setModal }) {
   }
 
   return (
-    <form className="content" onSubmit={(event) => onSubmit(event)}>
+    <form className="modal-form" onSubmit={(event) => onSubmit(event)}>
       <h2>Create item</h2>
       <InputField
         settings={form.name}
@@ -42,8 +42,10 @@ export default function ModalForm({ setModal }) {
         state={[price, setPrice]}
         validation={validatePrice}
       />
-      <button>Submit</button>
-      <button onClick={resetForm}>Cancel</button>
+      <button className="button-primary">Submit</button>
+      <button className="button-secondary" onClick={resetForm}>
+        Cancel
+      </button>
     </form>
   );
 }

@@ -5,8 +5,10 @@
 @import "./base/layout.css";
 
 /* Components */
-@import "./components/button.css";
+@import "./components/button-primary.css";
+@import "./components/button-secondary.css";
 @import "./components//Modal.css";
+@import "./components/ModalForm.css";
 
 /* Screens */
 @import "./screens/WelcomeScreen.css";
