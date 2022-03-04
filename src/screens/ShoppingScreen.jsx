@@ -4,6 +4,7 @@ import { useState } from "react";
 // Project files
 import TaskList from "../components/TaskList";
 import Sorter from "../components/Sorter";
+import ModalForm from "../components/ModalForm";
 import { useTasks } from "../state/TasksContext";
 
 export default function ShoppingScreen({ setModal }) {
@@ -24,7 +25,7 @@ export default function ShoppingScreen({ setModal }) {
       <TaskList list={pendingItems} />
       <button
         className="button-primary"
-        onClick={() => setModal(<span>bye!!</span>)}
+        onClick={() => setModal(<ModalForm setModal={setModal} />)}
       >
         Add item
       </button>

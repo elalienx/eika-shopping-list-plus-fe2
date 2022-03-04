@@ -1,5 +1,6 @@
 // Project files
 import HeroImage from "../assets/urban-shopping.png";
+import ModalForm from "../components/ModalForm";
 
 export default function WelcomeScreen({ setModal }) {
   return (
@@ -20,7 +21,7 @@ export default function WelcomeScreen({ setModal }) {
       </p>
       <button
         className="button-primary"
-        onClick={() => setModal(<span>hello</span>)}
+        onClick={() => setModal(<ModalForm setModal={setModal} />)}
       >
         Add item
       </button>

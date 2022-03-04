@@ -8,10 +8,8 @@ import validatePrice from "../scripts/validating-form/validatePrice";
 import InputField from "./InputField";
 import { useTasks } from "../state/TasksContext";
 
-export default function ModalForm({ modalState }) {
+export default function ModalForm({ setModal }) {
   const { addItem } = useTasks();
-
-  const [showModal, setShowModal] = modalState;
 
   // Local state
   const [name, setName] = useState("");
@@ -28,11 +26,8 @@ export default function ModalForm({ modalState }) {
   function resetForm() {
     setName("");
     setPrice("");
-    setShowModal(false);
+    setModal(false);
   }
-
-  // Safeguard
-  if (showModal === false) return null;
 
   return (
     <form className="content" onSubmit={(event) => onSubmit(event)}>
