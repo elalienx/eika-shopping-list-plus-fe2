@@ -19,7 +19,7 @@ export default function InputField({ settings, state, validation }) {
   }
 
   return (
-    <label>
+    <label className="input-field">
       {label}
       <input
         type={type}
@@ -30,7 +30,7 @@ export default function InputField({ settings, state, validation }) {
         onChange={(event) => setter(event.target.value)}
         onBlur={onValidate}
       />
-      {errorMessage && <small style={{ color: "red" }}>{errorMessage}</small>}
+      <small>{errorMessage}</small>
     </label>
   );
 }

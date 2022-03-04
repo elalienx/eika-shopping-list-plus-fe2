@@ -1,0 +1,13 @@
+.input-field {
+  display: block;
+  margin-bottom: var(--space-small);
+}
+
+.input-field small {
+  color: var(--color-error);
+}
+
+.input-field small::after {
+  content: ".";
+  visibility: hidden;
+}

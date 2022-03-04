@@ -4,6 +4,7 @@
   --color-text: black;
   --color-background: var(--swatch-gray-light);
   --color-foreground: var(--swatch-gray-dark);
+  --color-error: var(--swatch-red);
 }
 
 /* Space */

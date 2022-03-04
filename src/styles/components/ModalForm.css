@@ -1,7 +1,13 @@
 .modal-form {
-  padding: var(--space-small);
+  box-sizing: border-box;
+  padding: var(--space-medium);
 }
 
 .modal-form h2 {
   text-align: center;
+}
+
+.modal-form button {
+  display: block;
+  margin: 0 auto;
 }
