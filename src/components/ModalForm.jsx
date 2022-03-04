@@ -26,7 +26,7 @@ export default function ModalForm({ setModal }) {
   function resetForm() {
     setName("");
     setPrice("");
-    setModal(false);
+    setModal(null);
   }
 
   return (
