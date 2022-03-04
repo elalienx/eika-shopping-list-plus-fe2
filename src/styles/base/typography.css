@@ -14,7 +14,10 @@ h2 {
   line-height: 1.5;
 }
 
-p {
+p,
+input,
+label,
+button {
   font-size: 14px;
   line-height: 1.6;
 }
@@ -27,6 +30,4 @@ small {
 label,
 button {
   font-weight: bold;
-  font-size: 14px;
-  line-height: 1.6;
 }

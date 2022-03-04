@@ -1,0 +1,17 @@
+input {
+  box-sizing: border-box;
+  padding: var(--space-small);
+  width: 295px;
+  height: 44px;
+  background-color: var(--color-background);
+  border-radius: var(--border-radius);
+  border: none;
+}
+
+input::placeholder {
+  color: var(--color-foreground);
+}
+
+/* The default padding behaviour is context-box */
+/* Content box: The final with of a element is normal width + padding + border  */
+/* Border box: The final width of a element is just the width. The padding do not affect the size */
