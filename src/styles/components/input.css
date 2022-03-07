@@ -1,8 +1,9 @@
 input {
   box-sizing: border-box;
-  padding: var(--space-small);
   width: 295px;
   height: 44px;
+  margin: 0;
+  padding: var(--space-small);
   background-color: var(--color-background);
   border-radius: var(--border-radius);
   border: none;

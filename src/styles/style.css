@@ -8,9 +8,12 @@
 @import "./components/button.css";
 @import "./components/button-primary.css";
 @import "./components/input.css";
+@import "./components/input-checkbox.css";
 @import "./components/InputField.css";
 @import "./components//Modal.css";
 @import "./components/ModalForm.css";
+@import "./components/TaskList.css";
+@import "./components/TaskItem.css";
 
 /* Screens */
 @import "./screens/WelcomeScreen.css";
