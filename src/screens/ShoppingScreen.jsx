@@ -30,10 +30,7 @@ export default function ShoppingScreen({ setModal }) {
         >
           Add item
         </button>
-        <button
-          className="button-secondary"
-          onClick={() => setShowCompleted(!showCompleted)}
-        >
+        <button onClick={() => setShowCompleted(!showCompleted)}>
           {toggleLabel} completed items
         </button>
       </div>

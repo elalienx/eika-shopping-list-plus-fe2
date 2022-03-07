@@ -1,15 +1,12 @@
 /* Targets the tag */
 .button-primary {
-  --height: 44px;
-
   width: 200px;
-  height: var(--height);
   background-color: var(--color-primary);
   color: white;
-  border-radius: var(--height);
-  border: none;
+  border-radius: 100px; /* trick to make the borders a semi-circle */
 }
 
 .button-primary:hover {
+  text-decoration: none;
   background-color: #004a8a;
 }

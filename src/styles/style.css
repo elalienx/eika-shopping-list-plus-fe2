@@ -5,8 +5,8 @@
 @import "./base/layout.css";
 
 /* Components */
+@import "./components/button.css";
 @import "./components/button-primary.css";
-@import "./components/button-secondary.css";
 @import "./components/input.css";
 @import "./components/InputField.css";
 @import "./components//Modal.css";
