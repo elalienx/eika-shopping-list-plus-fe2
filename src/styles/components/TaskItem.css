@@ -20,3 +20,8 @@
 .task-item .spacer {
   flex-grow: 1;
 }
+
+.task-item.completed .name,
+.task-item.completed .price {
+  color: var(--color-foreground);
+}

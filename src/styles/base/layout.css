@@ -18,6 +18,10 @@ img {
   padding: var(--space-big);
 }
 
+.App .header {
+  margin-bottom: var(--space-big);
+}
+
 .App .header img {
   width: 100px;
 }

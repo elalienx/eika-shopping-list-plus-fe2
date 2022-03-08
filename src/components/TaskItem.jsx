@@ -32,7 +32,7 @@ export default function TaskItem({ item }) {
   }
 
   return (
-    <li className="task-item">
+    <li className={`task-item ${isCompleted && "completed"}`}>
       <InputCheckbox checked={isCompleted} onChange={onCheck} />
       <span className="name">{name}</span>
       <span className="spacer">{/* to align items leave at blank */}</span>
