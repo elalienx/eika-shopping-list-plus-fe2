@@ -34,7 +34,9 @@ export default function TaskItem({ item }) {
   return (
     <li className="task-item">
       <InputCheckbox checked={isCompleted} onChange={onCheck} />
-      {name}, {price}
+      <span className="name">{name}</span>
+      <span className="spacer">{/* to align items leave at blank */}</span>
+      <span className="price">{price}:-</span>
       <InputImage imageURL={imageURL} onAddImage={onAddImage} />
     </li>
   );

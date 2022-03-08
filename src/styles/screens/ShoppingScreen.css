@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+#shopping-screen h1 {
+  text-align: center;
+}
+
 #shopping-screen .main-buttons button {
   display: block;
   margin: 0 auto;

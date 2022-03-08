@@ -1,4 +1,9 @@
-.input-image {
+.input-image,
+.input-image img {
+  --size: 44px;
+
+  width: var(--size);
+  height: var(--size);
 }
 
 .input-image input[type="file"] {
@@ -6,9 +11,7 @@
 }
 
 .input-image img {
-  --size: 44px;
-
-  width: var(--size);
-  height: var(--size);
+  object-fit: cover;
+  object-position: center;
   border-radius: var(--border-radius);
 }

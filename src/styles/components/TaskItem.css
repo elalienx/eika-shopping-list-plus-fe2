@@ -1,2 +1,22 @@
 .task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-item .name {
+  text-transform: uppercase;
+}
+
+.task-item .price {
+  margin-right: var(--space-small);
+  font-weight: bold;
+}
+
+.task-item .input-checkbox {
+  margin-right: var(--space-small);
+}
+
+.task-item .spacer {
+  flex-grow: 1;
 }
