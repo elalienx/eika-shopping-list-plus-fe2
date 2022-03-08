@@ -1,5 +1,8 @@
 // NPM packages
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 
 // Project files
 import TaskList from "../components/TaskList";
@@ -17,6 +20,7 @@ export default function ShoppingScreen({ setModal }) {
   const completedItems = tasks.filter((item) => item.isCompleted === true);
   const pendingItems = tasks.filter((item) => item.isCompleted === false);
   const toggleLabel = showCompleted ? "Hide" : "View";
+  const toggleIcon = showCompleted ? faEyeSlash : faEye;
 
   return (
     <div id="shopping-screen">
@@ -30,7 +34,11 @@ export default function ShoppingScreen({ setModal }) {
         >
           Add item
         </button>
-        <button onClick={() => setShowCompleted(!showCompleted)}>
+        <button
+          className="button-icon"
+          onClick={() => setShowCompleted(!showCompleted)}
+        >
+          <FontAwesomeIcon icon={toggleIcon} />
           {toggleLabel} completed items
         </button>
       </div>
