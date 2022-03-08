@@ -1,4 +1,5 @@
 // Project files
+import InputCheckbox from "./InputChecbox";
 import readFile from "../scripts/upload-image/readFile";
 import resizeImage from "../scripts/upload-image/resizeImage";
 import { uploadFile } from "../scripts/upload-image/cloudStorage";
@@ -31,7 +32,7 @@ export default function TaskItem({ item }) {
 
   return (
     <li className="task-item">
-      <input type="checkbox" checked={isCompleted} onChange={onCheck} />
+      <InputCheckbox checked={isCompleted} onChange={onCheck} />
       {name}, {price}
       <input
         type="file"

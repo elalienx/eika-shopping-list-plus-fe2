@@ -1,0 +1,26 @@
+.input-checkbox {
+  margin: 0;
+  padding: 0;
+}
+
+.input-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.input-checkbox .icon-checkmark {
+  background-color: var(--color-background);
+
+  --size: 38px;
+
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--border-radius);
+}
+
+.input-checkbox .icon-checkmark.checked {
+  background-color: var(--color-primary);
+  background-image: url("../../assets/checkmark-white.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
