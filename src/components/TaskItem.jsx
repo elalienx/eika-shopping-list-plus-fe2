@@ -1,5 +1,6 @@
 // Project files
 import InputCheckbox from "./InputChecbox";
+import InputImage from "./InputImage";
 import readFile from "../scripts/upload-image/readFile";
 import resizeImage from "../scripts/upload-image/resizeImage";
 import { uploadFile } from "../scripts/upload-image/cloudStorage";
@@ -34,12 +35,7 @@ export default function TaskItem({ item }) {
     <li className="task-item">
       <InputCheckbox checked={isCompleted} onChange={onCheck} />
       {name}, {price}
-      <input
-        type="file"
-        accept="image/png, image/jpeg"
-        onChange={(event) => onAddImage(event)}
-      />
-      <img src={imageURL} alt="Thumbnail of the product" />
+      <InputImage imageURL={imageURL} onAddImage={onAddImage} />
     </li>
   );
 }
