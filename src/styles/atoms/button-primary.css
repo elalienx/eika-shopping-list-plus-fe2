@@ -10,3 +10,10 @@
   text-decoration: none;
   background-color: #004a8a;
 }
+
+/* Media queries */
+@media (min-width: 550px) {
+  .button-primary {
+    width: 320px;
+  }
+}

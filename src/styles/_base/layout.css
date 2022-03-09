@@ -25,3 +25,11 @@ img {
 .App .header img {
   width: 100px;
 }
+
+/* Media queries */
+@media (min-width: 550px) {
+  .App {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

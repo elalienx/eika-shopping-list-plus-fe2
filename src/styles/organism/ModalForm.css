@@ -1,4 +1,5 @@
 .modal-form {
+  width: 320px;
   box-sizing: border-box;
   padding: var(--space-medium);
 }
@@ -10,4 +11,11 @@
 .modal-form button {
   display: block;
   margin: 0 auto;
+}
+
+/* Media queries */
+@media (min-width: 550px) {
+  .modal-form {
+    width: 500px;
+  }
 }

@@ -15,3 +15,14 @@
   object-position: center;
   border-radius: var(--border-radius);
 }
+
+/* Media queries */
+@media (min-width: 550px) {
+  .input-image,
+  .input-image img {
+    --size: 56px;
+
+    width: var(--size);
+    height: var(--size);
+  }
+}

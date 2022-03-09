@@ -10,3 +10,10 @@ button {
 button:hover {
   text-decoration: underline;
 }
+
+/* Media queries */
+@media (min-width: 550px) {
+  button {
+    --height: 54px;
+  }
+}
