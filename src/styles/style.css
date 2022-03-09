@@ -1,22 +1,24 @@
 /* Base (the import order is important */
-@import "./base/swatches.css";
-@import "./base/typography.css";
-@import "./base/variables.css";
-@import "./base/layout.css";
+@import "./_base/swatches.css";
+@import "./_base/typography.css";
+@import "./_base/variables.css";
+@import "./_base/layout.css";
 
-/* Components */
-@import "./components/button.css";
-@import "./components/button-primary.css";
-@import "./components/button-icon.css";
-@import "./components/input.css";
-@import "./components/InputCheckbox.css";
-@import "./components/InputImage.css";
-@import "./components/InputField.css";
-@import "./components//Modal.css";
-@import "./components/ModalForm.css";
-@import "./components/TaskList.css";
-@import "./components/TaskItem.css";
+/* Atoms */
+@import "./atoms/button-icon.css";
+@import "./atoms/button.css";
+@import "./atoms/button-primary.css";
+@import "./atoms/input.css";
+@import "./atoms/InputCheckbox.css";
 
-/* Screens */
-@import "./screens/WelcomeScreen.css";
-@import "./screens/ShoppingScreen.css";
+/* Organism */
+@import "./organism/InputImage.css";
+@import "./organism/InputField.css";
+@import "./organism//Modal.css";
+@import "./organism/ModalForm.css";
+@import "./organism/TaskList.css";
+@import "./organism/TaskItem.css";
+
+/* Templates */
+@import "./templates/WelcomeScreen.css";
+@import "./templates/ShoppingScreen.css";
