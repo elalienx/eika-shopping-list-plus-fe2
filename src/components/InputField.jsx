@@ -8,6 +8,7 @@ export default function InputField({ settings, state, validation }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   // Methods
+  // Inpure (1, 2)
   function onValidate() {
     // Safeguard
     if (validation === undefined) return;

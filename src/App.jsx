@@ -22,6 +22,7 @@ export default function App() {
   useEffect(() => loadData(), []);
   useEffect(() => saveData(), [tasks]);
 
+  // Impure (1, 2)
   function loadData() {
     const data = localStorage.getItem(storageKey);
     const parseData = JSON.parse(data) || [];
@@ -29,6 +30,7 @@ export default function App() {
     temporalReplaceTasks(parseData);
   }
 
+  // Impute 1, 2, 3
   function saveData() {
     const data = JSON.stringify(tasks);
 

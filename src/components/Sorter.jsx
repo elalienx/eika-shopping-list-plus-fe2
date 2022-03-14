@@ -1,7 +1,10 @@
 export default function Sorter({ list, replaceTasks }) {
   // Methods
+  // Inpure (1, 2)
   function sortByName() {
     const clonedList = [...list];
+
+    // Pure
     const sortedList = clonedList.sort((a, b) => {
       const productA = a.name.toUpperCase();
       const productB = b.name.toUpperCase();
@@ -12,6 +15,7 @@ export default function Sorter({ list, replaceTasks }) {
     replaceTasks(sortedList);
   }
 
+  // Impure (1, 2)
   function sortByPrice() {
     const clonedList = [...list];
     clonedList.sort((a, b) => b.price - a.price);

@@ -1,3 +1,4 @@
+// Pure
 export default function validateName(string) {
   const parsedString = string.trim();
   let data = "";

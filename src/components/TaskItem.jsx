@@ -11,6 +11,7 @@ export default function TaskItem({ item }) {
   const { name, price, imageURL, isCompleted } = item;
 
   // Methods
+  // Impure (1, 2)
   function onCheck() {
     const clonedItem = { ...item };
 
@@ -18,6 +19,7 @@ export default function TaskItem({ item }) {
     editItem(clonedItem);
   }
 
+  // Impure (1, 2, 3)
   async function onAddImage(event) {
     const file = event.target.files[0];
     const uniqueId = new Date().getTime();

@@ -1,3 +1,4 @@
+// Pure
 export default function validatePrice(number) {
   const parseNumber = Number(number.trim());
   let data = "";

@@ -16,6 +16,7 @@ export default function ModalForm({ setModal }) {
   const [price, setPrice] = useState("");
 
   // Methods
+  // Impure (1, 2)
   function onSubmit(event) {
     event.preventDefault();
 
@@ -23,6 +24,7 @@ export default function ModalForm({ setModal }) {
     resetForm();
   }
 
+  // Impure (1,2)
   function resetForm() {
     setName("");
     setPrice("");
