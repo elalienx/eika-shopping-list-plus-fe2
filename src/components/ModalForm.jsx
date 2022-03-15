@@ -17,6 +17,10 @@ export default function ModalForm({ setModal }) {
 
   // Methods
   // Impure (1, 2)
+  // 1. event ✅
+  // 2. addItem function
+  // 3. state (name, price)
+  // 4. resetForm function
   function onSubmit(event) {
     event.preventDefault();
 

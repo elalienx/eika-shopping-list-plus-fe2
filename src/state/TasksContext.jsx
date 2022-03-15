@@ -3,27 +3,27 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const Context = createContext(null);
 
-export function TasksProvider({ children }) {
-  // State
-  const [tasks, setTasks] = useState([]);
+export function TasksProvider({ storageKey, children }) {
+  // Local state
+  const [tasks, setTasks] = useState(loadList(storageKey));
 
-  // Properties
+  // Property
   const values = { tasks, addItem, editItem, replaceTasks };
-  const storageKey = "eika-fe2";
 
   // Methods
-  useEffect(() => loadList(), []);
-  useEffect(() => saveList(), [tasks]);
+  useEffect(() => saveList(tasks, storageKey), [tasks]);
 
-  function loadList() {
+  // Pure
+  function loadList(storageKey) {
     const data = localStorage.getItem(storageKey);
     const parseData = JSON.parse(data) || [];
 
-    setTasks(parseData);
+    return parseData;
   }
 
-  function saveList() {
-    const data = JSON.stringify(tasks);
+  // Impure
+  function saveList(list, storageKey) {
+    const data = JSON.stringify(list);
 
     localStorage.setItem(storageKey, data);
   }
@@ -48,18 +48,19 @@ export function TasksProvider({ children }) {
     setTasks(clonedList);
   }
 
-  function replaceTasks(newTasks) {
+  function replaceTasks(list, newList) {
     const errorText = "The new list is smaller than the old one";
 
     // Safeguard
-    if (newTasks.length !== tasks.length) throw new Error(errorText);
+    if (newList.length !== list.length) throw new Error(errorText);
 
-    setTasks(newTasks);
+    setTasks(newList);
   }
 
   return <Context.Provider value={values}>{children}</Context.Provider>;
 }
 
+// Impure (2)
 export function useTasks() {
   const context = useContext(Context);
   const errorText =

@@ -1,7 +1,7 @@
 export default function Sorter({ list, replaceTasks }) {
   // Methods
-  // Inpure (1, 2)
-  function sortByName() {
+  // Inpure (1)
+  function sortByName(list) {
     const clonedList = [...list];
 
     // Pure
@@ -12,22 +12,22 @@ export default function Sorter({ list, replaceTasks }) {
       return productA > productB ? 1 : -1;
     });
 
-    replaceTasks(sortedList);
+    replaceTasks(list, sortedList);
   }
 
-  // Impure (1, 2)
-  function sortByPrice() {
+  // Impure (1)
+  function sortByPrice(list) {
     const clonedList = [...list];
     clonedList.sort((a, b) => b.price - a.price);
 
-    replaceTasks(clonedList);
+    replaceTasks(list, clonedList);
   }
 
   return (
     <section className="sorter">
       Sort by:
-      <button onClick={sortByName}>Name</button>
-      <button onClick={sortByPrice}>Price</button>
+      <button onClick={() => sortByName(list)}>Name</button>
+      <button onClick={() => sortByPrice(list)}>Price</button>
     </section>
   );
 }

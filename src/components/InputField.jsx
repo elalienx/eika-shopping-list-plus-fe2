@@ -8,15 +8,15 @@ export default function InputField({ settings, state, validation }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   // Methods
-  // Inpure (1, 2)
-  function onValidate() {
+  // Inpure (1)
+  function onValidate(callback, setState, setError) {
     // Safeguard
-    if (validation === undefined) return;
+    if (callback === undefined) return;
 
-    const result = validation(getter);
+    const result = callback(getter);
 
-    setter(result.data);
-    setErrorMessage(result.error);
+    setState(result.data);
+    setError(result.error);
   }
 
   return (
@@ -29,7 +29,7 @@ export default function InputField({ settings, state, validation }) {
         autoFocus={autoFocus}
         value={getter}
         onChange={(event) => setter(event.target.value)}
-        onBlur={onValidate}
+        onBlur={() => onValidate(validation, setter, setErrorMessage)}
       />
       <small>{errorMessage}</small>
     </label>

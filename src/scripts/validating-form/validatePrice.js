@@ -1,15 +1,11 @@
 // Pure
 export default function validatePrice(number) {
   const parseNumber = Number(number.trim());
-  let data = "";
-  let error = "";
-
-  if (parseNumber > 0) {
-    data = parseNumber;
-  } else {
-    data = "";
-    error = "The price must cost more than 0";
-  }
+  const validation = parseNumber > 0;
+  const data = validation ? parseNumber : "";
+  const error = validation ? "" : "The price must cost more than 0";
 
   return { data: data, error: error };
 }
+
+

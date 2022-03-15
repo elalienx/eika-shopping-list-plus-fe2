@@ -14,4 +14,4 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 
-export const cloudStorageReference = getStorage(firebaseApp);
+export const cloudReference = getStorage(firebaseApp);
