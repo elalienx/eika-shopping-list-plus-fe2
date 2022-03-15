@@ -1,5 +1,5 @@
 // NPM packages
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Project files
 import Modal from "./components/Modal";
@@ -10,32 +10,10 @@ import Logo from "./assets/logo.png";
 import "./styles/style.css";
 
 export default function App() {
-  const { tasks, temporalReplaceTasks } = useTasks();
+  const { tasks } = useTasks();
 
   // Local state
   const [modal, setModal] = useState(null);
-
-  // Properties
-  const storageKey = "eika-tasks";
-
-  // Methods
-  useEffect(() => loadData(), []);
-  useEffect(() => saveData(), [tasks]);
-
-  // Impure (1, 2)
-  function loadData() {
-    const data = localStorage.getItem(storageKey);
-    const parseData = JSON.parse(data) || [];
-
-    temporalReplaceTasks(parseData);
-  }
-
-  // Impute 1, 2, 3
-  function saveData() {
-    const data = JSON.stringify(tasks);
-
-    localStorage.setItem(storageKey, data);
-  }
 
   return (
     <div className="App">
