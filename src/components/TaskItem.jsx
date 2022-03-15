@@ -1,10 +1,10 @@
 // Project files
 import InputCheckbox from "./InputCheckbox";
 import InputImage from "./InputImage";
-import readFile from "../scripts/upload-image/readFile";
-import resizeImage from "../scripts/upload-image/resizeImage";
-import { cloudReference } from "../scripts/firebase";
-import { uploadFile } from "../scripts/upload-image/cloudStorage";
+import readFile from "../scripts/resize-image/readFile";
+import resizeImage from "../scripts/resize-image/resizeImage";
+import { uploadFile } from "../scripts/firebase/cloudStorage";
+import { cloudReference } from "../scripts/firebase/firebase";
 import { useTasks } from "../state/TasksContext";
 
 export default function TaskItem({ item }) {
