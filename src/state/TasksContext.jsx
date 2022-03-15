@@ -1,21 +1,32 @@
 // NPM packages
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const Context = createContext(null);
 
-// 1. For the parent (or the person will expose the data to everyone else)
 export function TasksProvider({ children }) {
   // State
   const [tasks, setTasks] = useState([]);
 
   // Properties
-  const values = {
-    tasks,
-    addItem,
-    editItem,
-    replaceTasks,
-    temporalReplaceTasks,
-  };
+  const values = { tasks, addItem, editItem, replaceTasks };
+  const storageKey = "eika-fe2";
+
+  // Methods
+  useEffect(() => loadList(), []);
+  useEffect(() => saveList(), [tasks]);
+
+  function loadList() {
+    const data = localStorage.getItem(storageKey);
+    const parseData = JSON.parse(data) || [];
+
+    setTasks(parseData);
+  }
+
+  function saveList() {
+    const data = JSON.stringify(tasks);
+
+    localStorage.setItem(storageKey, data);
+  }
 
   function addItem(name, price) {
     const newItem = {
@@ -46,14 +57,9 @@ export function TasksProvider({ children }) {
     setTasks(newTasks);
   }
 
-  function temporalReplaceTasks(newTasks) {
-    setTasks(newTasks)
-  }
-
   return <Context.Provider value={values}>{children}</Context.Provider>;
 }
 
-// 2. For the children that wants to use the data.
 export function useTasks() {
   const context = useContext(Context);
   const errorText =
