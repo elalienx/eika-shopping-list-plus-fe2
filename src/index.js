@@ -8,7 +8,7 @@ import { TasksProvider } from "./state/TasksContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <TasksProvider storageKey={""}>
+    <TasksProvider storageKey={"todo-list"}>
       <App />
     </TasksProvider>
   </React.StrictMode>,
